@@ -9,7 +9,7 @@ function App(){
     setSavingSegmentOpen(!savingSegmentOpen);
   };
     return (
-        <Grid container xs={12} alignItem="center" >
+        <Grid container xs={12} alignItem="center" sx={{m:10}}>
             <Button variant="outlined" onClick={toggleDrawer}>
                 Save Segment
             </Button>
