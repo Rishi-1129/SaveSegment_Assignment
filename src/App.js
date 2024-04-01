@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Button, Grid, Drawer } from '@mui/material';
+import React, {useState} from 'react';
+import SaveSegment from './component/SaveSegment';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+function App(){
+    const [savingSegmentOpen, setSavingSegmentOpen] = useState(false);
+  const toggleDrawer = () => {
+    setSavingSegmentOpen(!savingSegmentOpen);
+  };
+    return (
+        <Grid container xs={12} alignItem="center" >
+            <Button variant="outlined" onClick={toggleDrawer}>
+                Save Segment
+            </Button>
+            <Drawer anchor="right" open={savingSegmentOpen} onClose={toggleDrawer}>
+            <SaveSegment onClose={toggleDrawer}/>
+            </Drawer>
+        </Grid>
+    )
 }
 
-export default App;
+
+export default App
